@@ -1,0 +1,105 @@
+@import 'reset.css';
+
+.menu, .container, .details {
+    border: var(--border);
+    height: 100vh;
+    flex-direction: column;
+}
+
+.menu { 
+    width: var(--menuWidth);
+    border-color: #24FF00;
+}
+
+.container {
+    width: calc(100vw - (var(--menuWidth) + var(--detailsWidth)));
+    border-color: #FA00FF;
+}
+
+.details {
+    width: var(--detailsWidth);
+    border-color: #0500FF;
+}
+
+body{
+    font-family: 'Roboto', 'Lato', sans-serif;
+}
+/* -------------menu - header ---------*/
+.menu > .menu__header__profile {
+    flex-direction:column;
+    font-size: 0.7em; /*em siginifica tamanho da letra m */
+}
+
+/*tanto o filho do menu, input, quanto quem tá dentro do filho input, placefolder, terão
+fonte 0.7em*/
+.menu input[type="search"]::placeholder,
+.menu input[type="search"]::placeholder {
+    font-size: 1em;
+}
+
+.menu .menu__header__profile > div {
+    width: var(--menuWidth);
+    align-items: center;
+    justify-content: space-around;
+}
+.menu .header__img__profile{
+    width: 20%;
+    /* caso o email seja muito grande pode fazer o final ficar oculto da seguinte forma:border: border:
+    overflow:hidden;
+    text-overflow: ellipsis;
+    */
+}
+
+.menu .menu__header__profile svg {
+    width: 24px;
+    height: 24px;   
+}
+
+.menu .menu__header__profile label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+
+}
+
+.menu .menu__header__profile label input {
+    padding-left: 5%;
+    border: none;
+    background: none;
+}
+
+.menu .Activity ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 0.5px rgba(100, 100, 100, 0.2);
+}
+.menu > .Activity ul li {
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    font-size: 0.9em;
+}
+
+.menu > .Activity ul li:hover {
+    background-color: rgba(100, 100, 100, 0.1);
+    cursor: pointer;
+}
+
+header.menu__header__profile > div:first-child {
+    margin-left: 15px;
+}
+
+header.menu__header__profile > div {
+    margin-top: 15px;
+}
+
+.menu >.Activity ul ol > svg{
+    margin-right: 10%;
+}
+
+/*-------------fim menu - header ----------*/
