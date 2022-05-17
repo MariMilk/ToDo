@@ -1,16 +1,76 @@
 @import 'reset.css';
 
+/*diretiav*/
+
 .menu, .container, .details {
-    border: var(--border);
     height: 100vh;
-    flex-direction: column;
 }
 
+.menu {
+    background-color: #F2F2F2;
+}
+
+.details {
+    border: var(--border);
+}
+/* no react a sintaxe é parecida com HTML JSX classeName*/
+/*Next.JS react proibe seletores impuros*/
+/*
+- bloco de css é um conjunto de declarações delimitado por chaves e um seletor.
+- declaração é composta por propriedade: valor;
+- propriedade é uma forma de especificar ou formatar algum recurso no css. */
 .menu { 
     width: var(--menuWidth);
     border-color: #24FF00;
+    flex-direction: column;
 }
 
+/* uma declaração CSS é comporsta de 4parter:
+1. propriedade
+2. dois pontos
+3. Valor
+4. ponto e vírgula
+propriedade:valor;  -> width:200px;
+
+propriedade CSS  tem::after
+    Ex: width7
+    unidades de medida: px % vw em
+    Valores Possíveis all,  min-content, max-content, fit-content, auto
+    Valor Padrão é o valor inicial: auto
+    Herança implícita: não
+Propriedades mais usadas:
+Width,
+height
+padding
+border, border-width, border-wirdth-top, border-radius, border-bottom...
+margin
+font-family
+font-size
+font-weight
+position
+z-index,
+overflow, display,
+flex
+flex-direction,
+align-items
+justify-content
+flex-flow
+flex-frow
+flex-wrap
+grid
+grid-gap
+row
+column
+transform
+transition
+animation
+opacity
+filter
+text-decoration
+list-style*/
+
+
+ 
 .container {
     width: calc(100vw - (var(--menuWidth) + var(--detailsWidth)));
     border-color: #FA00FF;
@@ -103,3 +163,56 @@ header.menu__header__profile > div {
 }
 
 /*-------------fim menu - header ----------*/
+
+/* ---------------main - .container -----------------*/
+.container {
+    height: inherit;
+    flex-direction: column;
+    background: url('../images/bg-phone.jpg')center no-repeat;
+    background-size: cover;
+}
+
+.container > header, 
+.container > footer {
+    height: 133px;
+    border: solid 1px red;
+}
+
+.container > section.tasks {
+    height: calc(100vh - (133px * 2));
+}
+
+.container > header {
+    width: 100%;
+    flex-direction: column;
+    color: #fff;
+    text-shadow: 0 0 2px #333;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.container > header > div:first-child {
+    margin-top: 2%;
+    justify-content:space-between;
+}
+
+/* tablet breakpoint*/
+@media(min-width: 768px) {
+    .container {
+        background: url('../images/bg-tablet.jpg')center no-repeat;
+        background-size: cover;
+       
+    }
+}
+
+/*desktop*/
+@media(min-width: 1280px) {
+    .container {
+        background: url('../images/bg-desktop.jpg')center no-repeat;
+        background-size: cover;
+}
+}
+
+
+/* ------------------- fim main - .container

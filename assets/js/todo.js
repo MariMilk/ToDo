@@ -1,67 +1,79 @@
-import {escreve} from ".utils/write.js";
-console.log("Vai Náutico");
-console.info("Vai Náutico");
-console.error("Forçando um erro!");
-console.warn("Forçando um alerta!");
+//banco de dados noSQL- Orientado a documentos. MongoDB, Firebase, Cassandra
 
-//const - constante - não muda. NUNCA. A não ser objetos e referências, aí o conteúdo pode mudar.
-//Os identificadores são sempre em camelCase
-const nome = 'Mariana';
+const db = [
+    {
+      id: 1,
+      title: "Concluir App Conexão Arte",
+      steps: [
+        { step: "Ajustar textos" },
+        { step: "Trocar imagens para imagens públicas" },
+        { step: "Publicar no Expo" },
+        { step: "Publicar no Expo Store Connect" },
+      ],
+      done: false,
+      dueDate: "2022-05-06",
+      reminder: "2022-05-02 10:00",
+    },
+  
+    {
+      id: 2,
+      title: "Aula 4 Fiap - Avanade",
+      steps: [{ step: "Atributos Globais" }, { step: "Estrutura CSS" }],
+      done: true,
+      dueDate: "2022-04-28",
+    },
+  ];
+  
+  //getAllTasks(db);
+console.log(db[0].title);
 
-//let - variável - pode mudar a qq momento
-let email = 'marileite@yahoo.com';
 
-//var variável pública, livre de escopo
-console.log(`Nome: ${nome} Email: ${email}`);
+const form = document.querySelector("#addNewTask");
+const newTask = document.querySelector("#inputTxtNewTask");
+/*qdo estiver enviando o formulário, vc pára.*/
+form.addEventListener("submit", (e) => {
+  //Form faz um favor? Pois não! Não faz nada...
+  e.preventDefault();
+});
 
-if(nome == 'Mariana') { //vai dar erro de tipo pq nome é uma constante, qdo coloca = estpa atribuindo, para saber se é igual coloca ==, para saber se o valor e o tipo são iguais ===
-    console.log("é igual");
-}
-// if(nomeCompleto == 'Mariana') { //vai dar erro de referência ou digitou errado ou não criou.
-//     console.log("é igual");
-// }
+newTask.addEventListener("keyup", (e)=>{
+    e.preventDefault(); /*parar o comportamento padrão, não quero que execute o padrão do evento*/
+    e.stopPropagation();/*para eventos de click, vc clica no elemento que tem outro elemento em volta para ter controle total do evento, não ocorrer mais de um evento*/ 
+    if(e.key == 'Enter') {
+        alert(newTask.value);
 
-//if(nomeCompleto  'Mariana') { //vai dar erro de sintaxe, tá faltando ou tem alguém no lugar errado da sintaxe.
-//    console.log("é igual");
+        db.push([{title: newTask.value}]);
+
+        newTask.value = '';
+        console.log(e)
+    }
+    
+    /* e significa event (evento). As informações do evento estão dentro da letra e*/
+});
+
+//exemplo de array:
+//const frutas = ['maçã', 'banana', 'abacaxi', 'abacate'];
+// frutas[3];
+//frutas.lenght;
+//frutas.at(-1); pega o último elemento se não colocar at dá erro
+//frutas[frutas.lenght - 1]; último elemento
+//O const abaixo segue a notação JavaScript Object Notation - JSON:
+//const dados = {
+    //nome:'Mariana',
+    //idade: 36,
+    //programador: true,
+    //acao: () => {
+        //console.log('Executando uma ação')
+   // },
+
+//};
+//Objeto é um conjunto de atributos (propriedades ou valores) e métodos (ações ou funções)
+//console.log(dados.nome);
+//console.log('Idade: ', dados.idade);
+//dados.acao(); 
+//no TypeScript dá para fazer uma interface:
+//interface iDados {
+    //nome: string;
+    //idade: number;
+    //programador: Boolean;
 //}
-
-//hoisting
-//chamar import, function, var e import que ainda não foram criadas, iça a função ou variável. const e let não sofrem Hoisting.
-//o JS faz duas análises:
-// 1º Análise léxica
-// 2º Análise Sintática
-function excreve(x) {
-    console.log("Frase: " + x)
-}
-import {escreve} from ".utils/write.js";
-//função arrow é a mesma coisa de cima
-// const escreve = (x) => {
-//    console.log("Frase")
-//}
-escreve(`Seja bem-vindo ${nome}`);
-escreve("Treinamento HTML5, CSS3 e JS");
-
-//####################################
-//  console.log();
-//  console.info();
-//  console.error();
-//  console.warn();
-//  objeto .metodo();
-//  objeto .propriedade = valor;
-//objeto.propriedade
-//document é um objeto 
-//objeto é uma instância de uma classe
-//window é um objeto => métodos (ação) e propriedades (valor)
-//window.innerHeight
-//window.innerHeight
-//########################################
-// Em JavaScript existem 7 tipos de erro:
-// 1. Type Error - Erro de tipo 
-// 2. Reference Error - Erro de referência
-// 3. Syntax Error - Erro de Sintaxe
-// 4. Eval - executa qq código em JavaScripit
-// 5. Range Error
-// 6. Internal Error
-// 7. URIError (uri é uma parte do endereço do site)
-
-//#####################################
